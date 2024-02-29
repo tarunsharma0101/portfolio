@@ -6,7 +6,7 @@ import MYSQL from '../utils/images/mysql.jpg'
 
 const Skills = () => {
   return (
-    <div className='bg-slate-300 md:mt-10 md:h-[192vh] h-[135vh]'>
+    <div className='bg-slate-300 md:mt-10 '>
 
         <div className='md:h-[15vh] h-12 bg-gray-800 text-slate-400 items-center flex'>
             <h1 className='m-10 md:text-6xl text-2xl md:font-thin ' id='skills'>Skills</h1>

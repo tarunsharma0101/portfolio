@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import Typed from 'typed.js';
 import { useEffect } from 'react';
 import { useRef } from 'react';
-import AnchorLink from "react-anchor-link-smooth-scroll";
-import IMG from '../utils/images/passport_photo.jpg'
+import IMG from '../utils/images/passport_photo.jpg';
+import {  useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
         const el = useRef(null);
+        const navigate = useNavigate();
 
         const[pdfURL, setPdfURL] = useState('');
 
@@ -26,6 +27,10 @@ const Home = () => {
 
           document.body.removeChild(link);
      }
+
+      const contactHandler = () => {
+        navigate('/contact');
+      }
         
       
         useEffect(() => {
@@ -43,7 +48,7 @@ const Home = () => {
         }, []);
 
   return (
-    <div className='flex justify-between bg-slate-300 md:h-[85vh]' id='home'>
+    <div className='flex justify-between bg-[#ffffff] md:h-[85vh] m-4 md:m-8 shadow-xl shadow-black' id='home'>
         <div className='md:m-6 flex flex-col md:justify-evenly md:font-semibold md:h-[500px]' >
             <h1 className='md:text-5xl md:my-10 my-5 mx-2 text-2xl'>Hello , I am <span className='font-bold bg-slate-500 px-2' >Tarun Sharma</span></h1>
 
@@ -51,16 +56,17 @@ const Home = () => {
 
             <p className='md:mb-10 mx-2 md:text-3xl text-lg mb-8'>Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving a complex and challenging real-world problems.</p>
 
-            <div className='w-3/12 md:ml-0 flex justify-evenly md:text-xl md:mb-0 text-sm mb-16' >
-                <button className='md:p-2 p-1 bg-slate-800 text-slate-300 rounded-md md:ml-0 ml-24 mr-4'
+            <div className='w-4/12 md:ml-0 flex justify-evenly md:text-xl md:mb-0 text-sm mb-16' >
+                <button className='md:px-6 md:py-2 px-3 py-2 bg-slate-800 text-slate-300 rounded-md md:ml-0 ml-24 mr-4'
                 onClick={downloadPdf}>RESUME</button>
                 
-                <AnchorLink href="#"><button className='md:p-2 p-1 bg-slate-800 text-slate-300  rounded-md'>CONTACT</button></AnchorLink>
+                <button onClick={contactHandler}
+                 className='md:px-6 md:py-2 px-3 py-2 bg-slate-800 text-slate-300  rounded-md'>CONTACT</button>
             </div>
         </div>
 
         <div className='hidden m-10 md:flex items-center '>
-            <img className='rounded-full border border-slate-500' src={IMG} alt='tarun' width={700} />
+            <img className='rounded-full  ' src={IMG} alt='tarun' width={700} />
         </div>
     </div>
   )
